@@ -11,6 +11,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { signUpBg } from "../constants";
+import "../scrollBarHide.css";
 
 const Profile = () => {
   const [movies, setMovies] = useState([]);
@@ -77,7 +78,7 @@ const Profile = () => {
           />
           <div
             id={`slider`}
-            className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth"
+            className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth hidescroll"
           >
             {movies.map((movie) => (
               <div

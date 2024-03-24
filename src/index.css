@@ -28,3 +28,13 @@ body {
   background-color: black;
   color: white;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:#DC2626;
+  border-radius: 20px;
+}

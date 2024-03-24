@@ -1,0 +1,21 @@
+::-webkit-scrollbar{
+    width: 0;
+}
+
+.hidescroll::-webkit-scrollbar {
+    width: 0;
+}
+.hidescroll::-webkit-scrollbar-thumb {
+display: none;
+background-color: transparent;
+border-radius: 0;
+}
+
+.hidescroll::-moz-scrollbar {
+    width: 0;
+}
+.hidescroll::-moz-scrollbar-thumb {
+display: none;
+background-color: transparent;
+border-radius: 0;
+}

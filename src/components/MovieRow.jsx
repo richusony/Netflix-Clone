@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieItem from "./MovieItem";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
+import "../scrollBarHide.css";
 
 const MovieRow = ({ title, url }) => {
   const [movies, setMovies] = useState([]);
@@ -27,7 +28,7 @@ const slide = (offset) => {
         />
         <div
           id={`slider${rowId}`}
-          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth"
+          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth hidescroll"
         >
           {movies.map((movie) => (
             <MovieItem key={movie.id} movie={movie} />
