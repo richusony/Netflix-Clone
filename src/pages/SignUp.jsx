@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { signUpBg } from "../constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContexts";
 
 const SignUp = () => {
   const [rememberLogin, setRememberLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const handleFormSubmit = () => {
+  const {user, signUp} = UserAuth();
+  const navigate = useNavigate();
+
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await signUp(email,password)
+    navigate('/')
+  } catch (err) {
+    console.log(err);
+  }
 }
 
   return (
@@ -25,7 +37,7 @@ const handleFormSubmit = () => {
             <div className="max-w-[320px] mx-auto py-16">
               <h1 className="text-3xl font-nsans-bold">Sign Up</h1>
 
-              <form className="w-full flex flex-col py-4">
+              <form onSubmit={handleFormSubmit} className="w-full flex flex-col py-4">
                 <input
                   type="email"
                   className="p-3 my-2 bg-gray-700 rounded"
