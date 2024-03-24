@@ -1,7 +1,6 @@
 const key = import.meta.env.VITE_TMDB_KEY;
 const baseUrl = "https://api.themoviedb.org/3";
 const randomPageNumber = Math.floor(Math.random() * 20);
-console.log("random",randomPageNumber)
 const endpoints = {
   popular: `${baseUrl}/movie/popular?api_key=${key}&page=${randomPageNumber+1}`,
   topRated: `${baseUrl}/movie/top_rated?api_key=${key}&page=${randomPageNumber}`,

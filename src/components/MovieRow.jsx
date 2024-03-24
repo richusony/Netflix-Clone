@@ -10,7 +10,6 @@ const MovieRow = ({ title, url }) => {
 
   useEffect(() => {
     axios.get(url).then((response) => setMovies(response.data.results));
-    console.log(movies);
   }, [url]);
 
 const slide = (offset) => {

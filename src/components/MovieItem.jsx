@@ -4,9 +4,8 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "../services/firebase";
 import { UserAuth } from "../context/AuthContexts";
-import axios from "axios";
-import YouTube from "react-youtube";
 import VideoContext from "../context/videoContext";
+import { getVideoData } from "../utils/helper";
 
 const MovieItem = ({ movie }) => {
   const [like, setLike] = useState(false);
@@ -30,10 +29,8 @@ const MovieItem = ({ movie }) => {
 
   const handleVideoPopUp = async (movie_id) => {
     try {
-      const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=e48bd4bd74d7d1b85cbf75b1898d06c9`
-      );
-      setVideoId(res.data.results[0].key); // Access the data property directly
+      const res = await getVideoData(movie_id);
+      setVideoId(res.data.results[0].key);
     } catch (error) {
       console.error("Error fetching video data:", error);
     }
